@@ -19,7 +19,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
    
-    
     /*
     1. 数据类型简介及输出
     
@@ -33,27 +32,82 @@
     
     3, 指针类型: 最终要的数据类型,所有的系统类, 自定义类都是指针;
     
-    3, 空类型: 空类型只有一个值 nil, 该类型没有名称, 因此没有空类型的变量, 变量不能转换成空类型, 但是空类型可以转换成任何引用类型;
+    4, 空类型: 空类型只有一个值 nil, 该类型没有名称, 因此没有空类型的变量, 变量不能转换成空类型, 但是空类型可以转换成任何引用类型;
     
     (2) 数据类型输出
      
-     整型占位符说明:
+     整型占位符说明: 看developerAppleDescription()
      
-     1, %d: 十进制整数, 正数无符号, 负数有 "-" 符号(d是decimal的缩写)(有符号的32位整数（int）);
-     
-     2, %o: 八进制无符号整数, 没有 0 前缀(无符号32位整数（unsigned int），以八进制打印);
-     
-     3, %x: 十六进制无符号整数, 没有 0x 前缀;
-     
-     4, %u: 十进制无符号整数;
     */
     
-    int a = -1;
+    /*
+     存储空间(64位编译器已试,其它16,32位,及其它编译环境造成的差异待研究)
+     
+     1个字节(byte)等于8bit("位"或"比特")
+     
+     数据类型       16位编译器      32位编译器      64位编译器
+     char          1byte          1byte         1byte
+     int           2byte          4byte         4byte
+     float         4byte          4byte         4byte
+     double        8byte          8byte         8byte
+     short int     2byte          2byte         2byte
+     unsigned int  2byte          4byte         4byte
+     long          4byte          4byte         8byte
+     unsigned long 4byte          4byte         8byte
+     long long     8byte          8byte         8byte
+     void*(指针变量) 2byte          4byte         8byte
+     
+     */
     
-    NSLog(@"%d", a);
+    /*
+    char a;
+    int b;
+    float c;
+    double d;
+    short int e;
+    unsigned int f;
+    long g;
+    unsigned long h;
+    long long i;
+    void *j;
+    
+    NSLog(@"%lu", sizeof(a));
+    NSLog(@"%lu", sizeof(b));
+    NSLog(@"%lu", sizeof(c));
+    NSLog(@"%lu", sizeof(d));
+    NSLog(@"%lu", sizeof(e));
+    NSLog(@"%lu", sizeof(f));
+    NSLog(@"%lu", sizeof(g));
+    NSLog(@"%lu", sizeof(h));
+    NSLog(@"%lu", sizeof(i));
+    NSLog(@"%lu", sizeof(j));
+    */
+    
+    
+    /*
+     取值范围  64位编译器环境下
+     char  -2^7  ~  2^7 - 1
+     short：-2^15 ~ 2^15 - 1
+     unsigned short：0 ~ 2^16 - 1
+     int   -2^31 ~  2^31 -1
+     unsigned int 0 ~ 2^32 - 1
+     long： -2^31 ~ 2^31 - 1
+     unsigned long：0 ~ 2^32 - 1
+     float: FLT_MIN ~ FLT_MAX
+     double: DBL_MIN ~ DBL_MAX
+     
+     
+     列出的只是64bit环境下的情况。
+     如果你的设备是16bit或者32bit，这些数据类型的取值范围肯定是不一样的。
+     比如int类型，在16bit环境下是占用2个字节的，共16bit。
+     所以int类型的取值范围是：-2^15 ~ 2^15 - 1。
+     */
+    
+    
+  
+    
     
     [self developerAppleDescription];
-    
 }
 
 
@@ -86,25 +140,44 @@
                 还可以使用CFTypeRef对象，返回CFCopyDescription函数的结果。
      
      %%         '％'字符。
-     %d, %D     有符号的32位整数（int）。
-     %u, %U     无符号32位整数（unsigned int）。
-     %x         无符号32位整数（unsigned int），使用数字0-9和小写a-f以十六进制打印。
+     
+     %d, %D     有符号的32位整数（int）。(十进制整数,d是decimal的缩写)
+     
+     %u, %U     无符号32位整数（unsigned int）。(十进制无符号整数)
+     
+     %x         无符号32位整数（unsigned int），使用数字0-9和小写a-f以十六进制打印。(十六进制无符号整数, 没有 0x 前缀)
+     
      %X         无符号32位整数（unsigned int），使用数字0-9和大写A-F以十六进制打印。
-     %o, %O     无符号32位整数（unsigned int），以八进制打印。
-     %f         64位浮点数（double）。
-     %e         64位浮点数（double），以科学记数法打印，使用小写e引入指数。
+     
+     %o, %O     无符号32位整数（unsigned int），以八进制打印。(八进制无符号整数, 没有 0 前缀)
+     
+     %f         64位浮点数（double）。(以小数形式输出浮点数, 默认 6 位小数)
+     
+     %e         64位浮点数（double），以科学记数法打印，使用小写e引入指数。(以指数形式输出浮点数, 默认 6 位小数)
+     
      %E         64位浮点数（double），用科学计数法用大写E引入指数。
+     
      %g         64位浮点数（double），如果指数小于-4或大于或等于精度，则以％e的样式打印，否则为％f的样式。
+                (自动选择 %e 或者 %f 格式)
+     
      %G         64位浮点数（double），如果指数小于-4或大于或等于精度，则以％E的样式打印，否则以％f的样式。
-     %c         8位无符号字符（unsigned char）。
+     
+     %c         8位无符号字符（unsigned char）。(单个字符输出)
+     
      %C         16位UTF-16代码单元（unichar）。
-     %s         8位无符号字符的Null终止数组。
+     
+     %s         8位无符号字符的Null终止数组。( 输出字符串)
                 因为％s说明符会导致系统默认编码中的字符被解释，所以结果可以是变量的，特别是从右到左的语言。
                 例如，使用RTL时，％s在字符不是强定向时插入方向标记。 因此，最好避免％s并明确指定编码。
+     
      %S         16位UTF-16代码单元的Null端接阵列。
-     %p         无效指针（void *），以数字0-9和小写a-f以十六进制打印，带前缀0x。
+     
+     %p         无效指针（void *），以数字0-9和小写a-f以十六进制打印，带前缀0x。(输出十六进制形式的指针地址)
+     
      %a         64位浮点数（double），以科学记数法打印，前缀0x和小数点前的十六进制数字使用小写p来引入指数。
+     
      %A         64位浮点数（double），以科学记数法打印，使用大写P引入指数前，使用小数点前的0X和十六进制数字。
+     
      %F         64位浮点数（double），以十进制格式打印。
      */
     
@@ -112,13 +185,21 @@
      表2 NSString格式化方法和CFString格式化函数支持的长度修饰符
      
      长度修饰符        描述
+     
      h          长度修饰符指定以下d，o，u，x或X转换说明符适用于短或无符号短参数。
+     
      hh         长度修饰符指定以下d，o，u，x或X转换说明符适用于带符号的char或unsigned char参数。
+     
      l          长度修饰符指定以下d，o，u，x或X转换说明符适用于long或unsigned long参数。
+     
      ll, q      长度修饰符指定以下d，o，u，x或X转换说明符适用于long long或unsigned long long参数。
+     
      L          长度修饰符指定以下a，A，e，E，f，F，g或G转换说明符适用于长双参数。
+     
      z          长度修饰符指定以下d，o，u，x或X转换说明符适用于size_t。
+     
      t          长度修饰符指定以下d，o，u，x或X转换说明符适用于ptrdiff_t。
+     
      j          长度修饰符指定以下d，o，u，x或X转换说明符适用于intmax_t或uintmax_t参数。
      */
     
@@ -138,10 +219,15 @@
      表3数据类型的格式说明符
      
      类型             格式说明符               注意事项
+     
      NSInteger        %ld or %lx            将值转换为long。
+     
      NSUInteger       %lu or %lx            将值转换为unsigned long.
-     CGFloat          %f or %g              ％f适用于浮动和双精度格式化; 但请注意下面介绍的扫描技术。
+     
+     CGFloat          %f or %g              ％f适用于浮动和双精度格式化; 但请注意下面介绍的sscanf。
+     
      CFIndex          %ld or %lx            和NSInteger一样。
+     
      pointer          %p or %zx             ％p将0x添加到输出的开头。如果不希望这样，请使用％zx并且没有typecast。
      
      */
@@ -166,8 +252,6 @@
      重要的是要记住，％lf在32位或64位平台上不能正确表示CGFloat。 
      这与％ld不同，在所有情况下都可以使用。
      */
-    
-    
 }
 
 

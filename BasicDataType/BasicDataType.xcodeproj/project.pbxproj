@@ -13,6 +13,7 @@
 		0F91A73B1F3AAC1E00A8C57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F91A7391F3AAC1E00A8C57F /* Main.storyboard */; };
 		0F91A73D1F3AAC1E00A8C57F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F91A73C1F3AAC1E00A8C57F /* Assets.xcassets */; };
 		0F91A7401F3AAC1E00A8C57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F91A73E1F3AAC1E00A8C57F /* LaunchScreen.storyboard */; };
+		0FD0DB381F3AF3C3008EFAA4 /* 数据类型及打印.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD0DB371F3AF3C3008EFAA4 /* 数据类型及打印.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0F91A73C1F3AAC1E00A8C57F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F91A73F1F3AAC1E00A8C57F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F91A7411F3AAC1E00A8C57F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FD0DB371F3AF3C3008EFAA4 /* 数据类型及打印.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "数据类型及打印.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		0F91A72F1F3AAC1E00A8C57F /* BasicDataType */ = {
 			isa = PBXGroup;
 			children = (
+				0FD0DB371F3AF3C3008EFAA4 /* 数据类型及打印.png */,
 				0F91A7331F3AAC1E00A8C57F /* AppDelegate.h */,
 				0F91A7341F3AAC1E00A8C57F /* AppDelegate.m */,
 				0F91A7361F3AAC1E00A8C57F /* ViewController.h */,
@@ -141,6 +144,7 @@
 				0F91A7401F3AAC1E00A8C57F /* LaunchScreen.storyboard in Resources */,
 				0F91A73D1F3AAC1E00A8C57F /* Assets.xcassets in Resources */,
 				0F91A73B1F3AAC1E00A8C57F /* Main.storyboard in Resources */,
+				0FD0DB381F3AF3C3008EFAA4 /* 数据类型及打印.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +318,7 @@
 				0F91A7461F3AAC1E00A8C57F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
