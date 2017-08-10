@@ -18,27 +18,99 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-   
+    
+    [self operator];
+
+    [self developerAppleDescription];
+}
+
+#pragma mark - 运算符
+
+- (void)operator {
+    
+    int a = 0b11110000; //八进制表示方式
+
+    [self testLog:a demoCount:0];
+    
+    #pragma mark 1,按位或运算  运算符 |
+    
+    //按位或运算符|比较两个数，然后返回一个新的数，这个数的每一位设置1的条件是两个输入数的同一位都不为0(即任意一个为1，或都为1)。
+    int test1_1 = 0b00001111;
+    
+    // 2个数,有一位是1结果那位数就是1(有一即一)
+    int b = a|test1_1; // 结果0b11111111
+    
+    [self testLog:b demoCount:1];
+    
+    #pragma mark 2,按位与运算 运算符 &
+    
+    // 按位与运算符对两个数进行操作，然后返回一个新的数，这个数的每个位都需要两个输入数的同一位都为1时才为1。
+    int test2_1 = 0b11111100;
+    int test2_2 = 0b00111111;
+    
+    //2个数,2位同时为1时才为1。(同时一才是一,其它皆为0)
+    int c = test2_1&test2_2; // 结果0b00111100
+    
+    [self testLog:c demoCount:2];
+    
+    #pragma mark 3,按位异或运算 运算符 ^
+    
+    // 按位异或运算符^比较两个数，然后返回一个数，这个数的每个位设为1的条件是两个输入数的同一位不同，如果相同就设为0
+    int test3_1 = 0b00010100;
+    int test3_2 = 0b00000101;
+    
+    //2个数,同一位,相同的变成0,不同的变成1
+    int d = test3_1 ^ test3_2; // 结果0b00010001;
+    
+    [self testLog:d demoCount:3];
+    
+    
+    #pragma mark 4,按位取反 运算符 ~
+    
+    
+//    0 0 1 0 1 1 1 0    46
+//    ———————————————
+//    1 1 0 1 0 0 0 1    209
+    
+    uint z = 0b00001111;
+    uint e = ~z;
+    
+    [self testLog:e demoCount:4];
+    
+}
+
+- (void)testLog:(int)input demoCount:(int)demoCount {
+    NSLog(@"第%d个例子", demoCount);
+    NSLog(@"以16进制方式输出: %X", input);
+    NSLog(@"以10进制方式输出: %d", input);
+    NSLog(@"以8进制方式输出: %o", input);
+    NSLog(@"\n");
+}
+
+#pragma mark - 数据类型简介及输出,存储空间,取值范围
+
+- (void)basicDataType {
+    
     /*
-    1. 数据类型简介及输出
-    
-    (1) 数据类型简介
-    
-    数据类型简介: Object - C 数据类型 分为 基本数据类型, 构造类型 和 指针类型;
-    
-    1, 基本数据类型: 整型, 字符型, 浮点型 (float 和 double), 枚举型;
-    
-    2, 构造类型: 数组类型, 结构体类型, 共用体类型;
-    
-    3, 指针类型: 最终要的数据类型,所有的系统类, 自定义类都是指针;
-    
-    4, 空类型: 空类型只有一个值 nil, 该类型没有名称, 因此没有空类型的变量, 变量不能转换成空类型, 但是空类型可以转换成任何引用类型;
-    
-    (2) 数据类型输出
+     1. 数据类型简介及输出
+     
+     (1) 数据类型简介
+     
+     数据类型简介: Object - C 数据类型 分为 基本数据类型, 构造类型 和 指针类型;
+     
+     1, 基本数据类型: 整型, 字符型, 浮点型 (float 和 double), 枚举型;
+     
+     2, 构造类型: 数组类型, 结构体类型, 共用体类型;
+     
+     3, 指针类型: 最终要的数据类型,所有的系统类, 自定义类都是指针;
+     
+     4, 空类型: 空类型只有一个值 nil, 该类型没有名称, 因此没有空类型的变量, 变量不能转换成空类型, 但是空类型可以转换成任何引用类型;
+     
+     (2) 数据类型输出
      
      整型占位符说明: 看developerAppleDescription()
      
-    */
+     */
     
     /*
      存储空间(64位编译器已试,其它16,32位,及其它编译环境造成的差异待研究)
@@ -60,28 +132,28 @@
      */
     
     /*
-    char a;
-    int b;
-    float c;
-    double d;
-    short int e;
-    unsigned int f;
-    long g;
-    unsigned long h;
-    long long i;
-    void *j;
-    
-    NSLog(@"%lu", sizeof(a));
-    NSLog(@"%lu", sizeof(b));
-    NSLog(@"%lu", sizeof(c));
-    NSLog(@"%lu", sizeof(d));
-    NSLog(@"%lu", sizeof(e));
-    NSLog(@"%lu", sizeof(f));
-    NSLog(@"%lu", sizeof(g));
-    NSLog(@"%lu", sizeof(h));
-    NSLog(@"%lu", sizeof(i));
-    NSLog(@"%lu", sizeof(j));
-    */
+     char a;
+     int b;
+     float c;
+     double d;
+     short int e;
+     unsigned int f;
+     long g;
+     unsigned long h;
+     long long i;
+     void *j;
+     
+     NSLog(@"%lu", sizeof(a));
+     NSLog(@"%lu", sizeof(b));
+     NSLog(@"%lu", sizeof(c));
+     NSLog(@"%lu", sizeof(d));
+     NSLog(@"%lu", sizeof(e));
+     NSLog(@"%lu", sizeof(f));
+     NSLog(@"%lu", sizeof(g));
+     NSLog(@"%lu", sizeof(h));
+     NSLog(@"%lu", sizeof(i));
+     NSLog(@"%lu", sizeof(j));
+     */
     
     
     /*
@@ -102,18 +174,16 @@
      比如int类型，在16bit环境下是占用2个字节的，共16bit。
      所以int类型的取值范围是：-2^15 ~ 2^15 - 1。
      */
-    
-    
-  
-    
-    
-    [self developerAppleDescription];
+
 }
 
 
 /**
  官网说明
  */
+
+#pragma mark - 格式说明符
+
 - (void)developerAppleDescription {
     
     // https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html
@@ -254,11 +324,6 @@
      */
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

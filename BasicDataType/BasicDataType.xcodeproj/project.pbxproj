@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F84511A1F3C019800E49C44 /* 按位或.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8451191F3C019800E49C44 /* 按位或.png */; };
+		0F84511C1F3C043900E49C44 /* 按位与.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F84511B1F3C043900E49C44 /* 按位与.png */; };
+		0F84511E1F3C04A600E49C44 /* 按位异或.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F84511D1F3C04A600E49C44 /* 按位异或.png */; };
+		0F8451201F3C0DDB00E49C44 /* 按位取反.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F84511F1F3C0DDB00E49C44 /* 按位取反.png */; };
 		0F91A7321F3AAC1E00A8C57F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F91A7311F3AAC1E00A8C57F /* main.m */; };
 		0F91A7351F3AAC1E00A8C57F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F91A7341F3AAC1E00A8C57F /* AppDelegate.m */; };
 		0F91A7381F3AAC1E00A8C57F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F91A7371F3AAC1E00A8C57F /* ViewController.m */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F8451191F3C019800E49C44 /* 按位或.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按位或.png"; sourceTree = "<group>"; };
+		0F84511B1F3C043900E49C44 /* 按位与.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按位与.png"; sourceTree = "<group>"; };
+		0F84511D1F3C04A600E49C44 /* 按位异或.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按位异或.png"; sourceTree = "<group>"; };
+		0F84511F1F3C0DDB00E49C44 /* 按位取反.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按位取反.png"; sourceTree = "<group>"; };
 		0F91A72D1F3AAC1E00A8C57F /* BasicDataType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicDataType.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F91A7311F3AAC1E00A8C57F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F91A7331F3AAC1E00A8C57F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				0FD0DB371F3AF3C3008EFAA4 /* 数据类型及打印.png */,
+				0F8451191F3C019800E49C44 /* 按位或.png */,
+				0F84511B1F3C043900E49C44 /* 按位与.png */,
+				0F84511D1F3C04A600E49C44 /* 按位异或.png */,
+				0F84511F1F3C0DDB00E49C44 /* 按位取反.png */,
 				0F91A7331F3AAC1E00A8C57F /* AppDelegate.h */,
 				0F91A7341F3AAC1E00A8C57F /* AppDelegate.m */,
 				0F91A7361F3AAC1E00A8C57F /* ViewController.h */,
@@ -141,8 +153,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F84511C1F3C043900E49C44 /* 按位与.png in Resources */,
+				0F84511E1F3C04A600E49C44 /* 按位异或.png in Resources */,
 				0F91A7401F3AAC1E00A8C57F /* LaunchScreen.storyboard in Resources */,
 				0F91A73D1F3AAC1E00A8C57F /* Assets.xcassets in Resources */,
+				0F8451201F3C0DDB00E49C44 /* 按位取反.png in Resources */,
+				0F84511A1F3C019800E49C44 /* 按位或.png in Resources */,
 				0F91A73B1F3AAC1E00A8C57F /* Main.storyboard in Resources */,
 				0FD0DB381F3AF3C3008EFAA4 /* 数据类型及打印.png in Resources */,
 			);
