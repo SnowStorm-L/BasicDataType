@@ -401,5 +401,11 @@
 }
 
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    Class a = NSClassFromString(@"DemoFirstViewController");
+    UIViewController * VC = [a new];
+    [self.navigationController pushViewController:VC animated:TRUE];
+}
+
 
 @end

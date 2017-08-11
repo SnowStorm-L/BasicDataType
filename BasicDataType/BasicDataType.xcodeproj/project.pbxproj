@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F3029BC1F3DEDF900298E83 /* DemoFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3029BB1F3DEDF900298E83 /* DemoFirstViewController.m */; };
 		0F84511A1F3C019800E49C44 /* 按位或.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8451191F3C019800E49C44 /* 按位或.png */; };
 		0F84511C1F3C043900E49C44 /* 按位与.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F84511B1F3C043900E49C44 /* 按位与.png */; };
 		0F84511E1F3C04A600E49C44 /* 按位异或.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F84511D1F3C04A600E49C44 /* 按位异或.png */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F3029BA1F3DEDF900298E83 /* DemoFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoFirstViewController.h; sourceTree = "<group>"; };
+		0F3029BB1F3DEDF900298E83 /* DemoFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoFirstViewController.m; sourceTree = "<group>"; };
 		0F8451191F3C019800E49C44 /* 按位或.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按位或.png"; sourceTree = "<group>"; };
 		0F84511B1F3C043900E49C44 /* 按位与.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按位与.png"; sourceTree = "<group>"; };
 		0F84511D1F3C04A600E49C44 /* 按位异或.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按位异或.png"; sourceTree = "<group>"; };
@@ -57,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F3029B91F3DEDE100298E83 /* 位移例子 */ = {
+			isa = PBXGroup;
+			children = (
+				0F3029BA1F3DEDF900298E83 /* DemoFirstViewController.h */,
+				0F3029BB1F3DEDF900298E83 /* DemoFirstViewController.m */,
+			);
+			path = "位移例子";
+			sourceTree = "<group>";
+		};
 		0F8451271F3C3C3E00E49C44 /* 位移运算 */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +109,7 @@
 				0F91A7341F3AAC1E00A8C57F /* AppDelegate.m */,
 				0F91A7361F3AAC1E00A8C57F /* ViewController.h */,
 				0F91A7371F3AAC1E00A8C57F /* ViewController.m */,
+				0F3029B91F3DEDE100298E83 /* 位移例子 */,
 				0F91A7391F3AAC1E00A8C57F /* Main.storyboard */,
 				0F91A73C1F3AAC1E00A8C57F /* Assets.xcassets */,
 				0F91A73E1F3AAC1E00A8C57F /* LaunchScreen.storyboard */,
@@ -195,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3029BC1F3DEDF900298E83 /* DemoFirstViewController.m in Sources */,
 				0F91A7381F3AAC1E00A8C57F /* ViewController.m in Sources */,
 				0F91A7351F3AAC1E00A8C57F /* AppDelegate.m in Sources */,
 				0F91A7321F3AAC1E00A8C57F /* main.m in Sources */,
