@@ -52,6 +52,10 @@
     if (buffer[0] != 0x12) { // 标志位不对
         return;
     }
+    
+    for (int i=0; i<10; i++) {
+        NSLog(@"原数据 第%d位是  %hhu", i, buffer[i]);
+    }
   
     data[0] = (((buffer[4]&0x1f))<<9)|((buffer[5]&0xff)<<1)|((buffer[6]&0x80)>>7);
     
