@@ -37,6 +37,7 @@ typedef NS_OPTIONS(NSUInteger, People) {
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     // unsigned long 输出 0,1,2,4
     NSLog(@"%lu, %lu, %lu, %lu", Student, Teacher, Worker, Doctor);
+    
     NSLog(@"%lu", Teacher|Worker); // 3
     
     People people = Teacher | Worker;
@@ -53,8 +54,7 @@ typedef NS_OPTIONS(NSUInteger, People) {
     //减少选项
     people = people & (~Doctor);//0111 & (~0100) = 000 0111 & 1111 1011 = 011 , 3
     
-    NSLog(@"%d", 7 & -5);
-    
+    NSLog(@"%lu", people);
     
      // 100  是4
     
