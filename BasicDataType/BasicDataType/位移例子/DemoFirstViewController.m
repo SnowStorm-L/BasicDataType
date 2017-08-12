@@ -8,7 +8,16 @@
 
 #import "DemoFirstViewController.h"
 
+typedef NS_OPTIONS(NSUInteger, People) {
+    Student = 0,
+    Teacher = 1 << 0, // 2的零次方 1     二进制表示 0000 0001
+    Worker  = 1 << 1, // 2的一次方 2     二进制表示 0000 0010
+    Doctor  = 1 << 2, // 2的二次方 4     二进制表示 0000 0100
+};
+
 @interface DemoFirstViewController ()
+
+@property (nonatomic, assign) People people;
 
 @end
 
@@ -20,13 +29,29 @@
     
     self.view.backgroundColor = [UIColor redColor];
     
-    [self randomData];
+    //[self randomData];
+   
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    // unsigned long 输出 0,1,2,4
+    NSLog(@"%lu, %lu, %lu, %lu", Student, Teacher, Worker, Doctor);
+    NSLog(@"%lu", Teacher|Worker); // 3
+    
+    People people = Teacher | Worker;
+    //检查是否包含某选型
+    if ( people & Teacher ){ //0011 & 0001 = 0001
+        //包含Teacher
+    }else{
+        //不包含Teacher
+    }
+    
+    //增加选项:
+    people = people | Doctor;//0011 | 0100 = 0111,  7
+    NSLog(@"%lu", people);
+    //减少选项
+    people = people & (~Doctor);//0111 & (~1011) , 3
     
 }
 
@@ -67,7 +92,7 @@
     
     data[4] = ((buffer[8]&0x03)<<8)|(buffer[9]&0xff);
     
-    data[5] = (buffer[7] + 256)%256;
+    data[5] = buffer[7];
     
     data[6] = buffer[1] == 0xe0 ? 0x01 : 0x00;
     
