@@ -49,14 +49,27 @@
     
     Byte data[7];
     
-    if (buffer[0] != 0x12) {
+    if (buffer[0] != 0x12) { // 标志位不对
         return;
     }
   
-    data[6] = buffer[1] == 0xE0 ? 0x01 : 0x00;
+    data[0] = (((buffer[4]&0x1f))<<9)|((buffer[5]&0xff)<<1)|((buffer[6]&0x80)>>7);
+    
+    data[1] = (buffer[6]&0x7f);  // *1000/128
     
     data[2] = (((buffer[1]&0x03))<<12)|((buffer[2]&0xff)<<4)|((buffer[3]&0xf0)>>4);
     
+    data[3] = ((buffer[3]&0x0f)<<3)|((buffer[4]&0xe0)>>5); //*1000/128
+    
+    data[4] = ((buffer[8]&0x03)<<8)|(buffer[9]&0xff);
+    
+    data[5] = (buffer[7] + 256)%256;
+    
+    data[6] = buffer[1] == 0xe0 ? 0x01 : 0x00;
+    
+    for (int i=0; i<7; i++) {
+        NSLog(@"第%d位是  %hhu", i, data[i]);
+    }
 }
 
 /*
