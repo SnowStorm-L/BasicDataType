@@ -17,8 +17,6 @@ typedef NS_OPTIONS(NSUInteger, People) {
 
 @interface DemoFirstViewController ()
 
-@property (nonatomic, assign) People people;
-
 @end
 
 @implementation DemoFirstViewController
@@ -30,17 +28,19 @@ typedef NS_OPTIONS(NSUInteger, People) {
     self.view.backgroundColor = [UIColor redColor];
     
     //[self randomData];
-   
     
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)demo1 {
+    
     // unsigned long 输出 0,1,2,4
+    
     NSLog(@"%lu, %lu, %lu, %lu", Student, Teacher, Worker, Doctor);
     
     NSLog(@"%lu", Teacher|Worker); // 3
     
     People people = Teacher | Worker;
+    
     //检查是否包含某选型
     if ( people & Teacher ){ //0011 & 0001 = 0001
         //包含Teacher
@@ -51,25 +51,26 @@ typedef NS_OPTIONS(NSUInteger, People) {
     //增加选项:
     people = people | Doctor;//0011 | 0100 = 0111,  7
     NSLog(@"%lu", people);
+    
     //减少选项
+    
+    //    Doctor 100  是4
+    //    4 二进制 100，补满 32位
+    //    0000 0000 0000 0000 0000 0000 0000 0100
+    //    按位取反
+    //    1111 1111 1111 1111 1111 1111 1111 1011
+    //    由于32位开头第一个是1，所以这是一个负数，将二进制转换成负数，需要先反码
+    //    0000 0000 0000 0000 0000 0000 0000 0100
+    //    之后，再+1
+    //    0000 0000 0000 0000 0000 0000 0000 0101
+    //    转换成十进制为5，加上符号变成负数 -5
+    //    -5 的原码是1 000 0101反码1 111 1010  补码是1 111 1011(最前面一位是正,负数标志位)
+    //    计算机中的计算都是补码计算
+    //    原码,反码,补码  看此链接 -> https://baike.baidu.com/item/反码
+    
     people = people & (~Doctor);//0111 & (~0100) = 000 0111 & 1111 1011 = 011 , 3
     
     NSLog(@"%lu", people);
-    
-     // 100  是4
-    
-//    4 二进制 100，补满 32位
-//    0000 0000 0000 0000 0000 0000 0000 0100
-//    按位取反
-//    1111 1111 1111 1111 1111 1111 1111 1011
-//    由于32位开头第一个是1，所以这是一个负数，将二进制转换成负数，需要先反码
-//    0000 0000 0000 0000 0000 0000 0000 0100
-//    之后，再+1
-//    0000 0000 0000 0000 0000 0000 0000 0101
-//    转换成十进制为5，加上符号变成负数 -5
-//    -5 的原码是1000 0101反码1111 1010  补码是1111 1011
-//    计算机中的计算都是补码计算
-    
 }
 
 - (void)randomData {
