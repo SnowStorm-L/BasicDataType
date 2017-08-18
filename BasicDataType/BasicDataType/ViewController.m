@@ -21,6 +21,7 @@
     [self operator];
 
     [self developerAppleDescription];
+    
 }
 
 #pragma mark - 运算符
@@ -402,9 +403,8 @@
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    Class a = NSClassFromString(@"DemoFirstViewController");
-    UIViewController * VC = [a new];
-    [self.navigationController pushViewController:VC animated:TRUE];
+    Class class = NSClassFromString(@"DemoFirstViewController");
+    [self.navigationController pushViewController:[class new] animated:TRUE];
 }
 
 
